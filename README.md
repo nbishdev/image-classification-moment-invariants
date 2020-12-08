@@ -7,4 +7,4 @@ The 3 original TIFF images/classes are located in the [original-images](/origina
 
 The classification features consist of the first 3 out of the 7 Hu invariants.
 
-To execute the code using MATLAB or GNU Octave, naviagte to the directory with the scripts and run main.m
+To execute the code using MATLAB or GNU Octave, naviagte to the directory with the scripts and run [main.m](/main.m)
