@@ -1,12 +1,7 @@
 function [ Generated_shapes ] = random_generator( sdir, tdir, c, n )
-% SHAPE_GENERATOR Generates N figures
-%   Generates N figures randomly selected from the C classes
-%   and distort them with random rotate shift and zoom
-%   and noise if specified
-%
 % RANDOM_GENERATOR Generates figures from existing classes
-%   Randomly generates N figures from the original C classes, and distorts them
-%   with random rotation, shift, zoom and noise
+%   Generates N objects (grayscale images) randomly selected from the original C
+%   classes by applying distortion with random rotation, shift, zoom and noise
 %
     first(1)=1;
     

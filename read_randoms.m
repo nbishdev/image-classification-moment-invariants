@@ -1,7 +1,8 @@
 function [ rand_hu ] = read_randoms( dir, n )
 % READ_RANDOMS Calculates the Hu invariant moments of images
-%   Given N randomly generated objects (images) from the original classes,
-%   read these objects and calculate their Hu moments (in logarithmic scale)
+%   Given a set of N randomly generated objects (images) produced from the
+%   original classes, read these objects and calculate their Hu moments (in
+%   logarithmic scale)
 %
     rand_hu=zeros(n,3);       % Hu invariant moments of all random objects for classification
 
