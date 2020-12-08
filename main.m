@@ -28,7 +28,7 @@ rand_hu=read_randoms(tedir,N);
 
 % Classify random objects using the 3-NN Classifier and calculate the
 % classification error
-predicted_3nn=classifier_3nn(C, S, train_hu, rand_hu);
+predicted_3nn=classifier_knn(C, S, 3, train_hu, rand_hu);
 classifier_3nn_error=(random_classes~=predicted_3nn);
 
 % Calculate the number of the misclassified objects of the 3-NN Classifier

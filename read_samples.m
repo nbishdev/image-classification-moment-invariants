@@ -1,6 +1,6 @@
 function [ train_hu ] = read_samples( dir, c, s )
 % READ_SAMPLES Calculates the Hu invariant moments of images
-%   Given C distinct classes and S samples (images) from each class
+%   Given C distinct classes and S samples (grayscale images) from each class
 %   read these samples and calculate their Hu moments (in logarithmic scale)
 %
     train_hu=zeros(c*s,3);  % Hu invariant moments of all samples for training
