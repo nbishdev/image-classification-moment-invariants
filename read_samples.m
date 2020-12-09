@@ -8,7 +8,7 @@ function [ features ] = read_samples( dir, c, s )
     
     for shape=1:c       % For each class
         for sample=1:s  % For each class' sample
-            filename=[dir,'S',num2str(shape),'_',num2str(sample),'.TIF'];
+            filename=[dir,'S',num2str(shape),'_',num2str(sample),'.tif'];
             image=imread(filename); % Open sample file
             image=double(image);    % Convert it to double
 

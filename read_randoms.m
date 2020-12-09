@@ -7,7 +7,7 @@ function [ features ] = read_randoms( dir, n )
     features=zeros(n,3);    % Hu invariant moments of all random figures
 
     for item=1:n     % For each random object
-        filename=[dir,'S',num2str(item),'.TIF'];
+        filename=[dir,'S',num2str(item),'.tif'];
         image=imread(filename); % Open object file
         image=double(image);    % Convert it to double
         

@@ -34,7 +34,7 @@ function [ Generated_shapes ] = random_generator( sdir, tdir, c, n )
         indxmx=shape(first(ishape):first(ishape)+height(ishape)-1,1:width(ishape));
         indxmx=con2_image(indxmx,half,firot,xshift,yshift,true);
         indxmx=uint8(indxmx);
-        filename=[tdir,'S',int2str(item),'.TIF'];
+        filename=[tdir,'S',int2str(item),'.tif'];
         imwrite(indxmx,filename);
         Generated_shapes(item)=ishape;
     end
