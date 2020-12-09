@@ -1,5 +1,5 @@
 function [indxmx] = con2_image( indxmx, half, firot, xshift, yshift, random )
-%CON2_IMAGE
+% CON2_IMAGE
 %   Constructs an image from indxmx with zoom (*0.5 or *1) depending on half,
 %   rotated by firot, shifted by [xshift,yshift] and with added noise
 %
@@ -10,7 +10,7 @@ function [indxmx] = con2_image( indxmx, half, firot, xshift, yshift, random )
     end
 
     if half==0
-        indxmx=imresize(indxmx,0.5,'nearest'); %Constract a picture of zoom *0.5
+        indxmx=imresize(indxmx,0.5,'nearest'); % Constract a picture of zoom *0.5
     end
     indxmx1=imrotate(indxmx,firot); % Constract Rotate image
     %

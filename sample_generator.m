@@ -1,8 +1,12 @@
 function [ Generated_shapes ] = sample_generator( sdir, tdir, c, s )
 % SAMPLE_GENERATOR Generates figures from existing classes
-%   Generates C*S figures from the original C classes (S figures from each 
-%   class), and distorts them with random rotation, shift and zoom
+%   Generates C*S sample 2D grayscale figures from the C prototype classes (S
+%   figures from each class), and distorts them with random rotation, shift and
+%   zoom
 %
+    % Initialaise random number generator of MATLAB
+    rand('seed',sum(100*clock));
+    
     first(1)=1;
     
     for ishape=1:c
@@ -14,7 +18,6 @@ function [ Generated_shapes ] = sample_generator( sdir, tdir, c, s )
     end
     
     clear indxmx;
-    rand('seed',sum(100*clock));
     ranum=rand([c*s,5]);
     Generated_shapes=zeros(c*s,'uint8');
     stat=1;
@@ -23,8 +26,8 @@ function [ Generated_shapes ] = sample_generator( sdir, tdir, c, s )
     end 
     
     for ishape=1:c
+        % Randomly select parameters for the sample figures
         for jshape=1:s
-            %Select randomly for th shape jshape
             idx=(ishape-1)*s+jshape; %Index in the random numbers table
             firot=(floor(12-ranum(idx,2)*12)+1)*30; %Select rotation
             xshift=floor(100-ranum(idx,3)*100)-50; %Select xshift

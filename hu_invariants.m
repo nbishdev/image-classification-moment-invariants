@@ -1,6 +1,6 @@
 function [ invariants ] = hu_invariants( a )
 % HU_MOMENT Calculates the 7 Hu moment invariants of an image
-%   Given a 2D grayscale image A calculate the 7 Hu moment invariants
+%   Given a 2D grayscale figure A, calculate the 7 Hu moment invariants
 %   
     f1 = standardized_moment(a, 2, 0) + standardized_moment(a, 0, 2);
     
