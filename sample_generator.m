@@ -19,7 +19,7 @@ function [ Generated_shapes ] = sample_generator( sdir, tdir, c, s )
     
     clear indxmx;
     ranum=rand([c*s,5]);
-    Generated_shapes=zeros(c*s,'uint8');
+    Generated_shapes=zeros(1,c*s,'uint8');
     stat=1;
     if stat~=0
         stat=fclose('all');

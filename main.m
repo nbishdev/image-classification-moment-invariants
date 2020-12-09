@@ -15,31 +15,40 @@ mkdir(tedir);               % Make sure directory exists
 
 % Randomly generate training data based on original images,
 % utilizing rotation, shifting and zoom
-sample_classes=sample_generator(odir,trdir,C,S);
+train_labels=sample_generator(odir,trdir,C,S);
 
 % Generate random objects and get the class from which each of them generated
-random_classes=random_generator(odir,tedir,C,N);
+test_labels=random_generator(odir,tedir,C,N);
 
-% Get samples' Hu invariant moments
-train_hu=read_samples(trdir,C,S);
+% Read the training samples and compute their Hu invariant moments
+training_set=read_samples(trdir,C,S);
 
-% Get random objects' Hu invariant moments
-rand_hu=read_randoms(tedir,N);
+% Read the random textures and compute their Hu invariant moments
+test_set=read_randoms(tedir,N);
 
 % Classify random objects using the 3-NN Classifier and calculate the
-% classification error
-predicted_3nn=classifier_knn(C, S, 3, train_hu, rand_hu);
-classifier_3nn_error=(random_classes~=predicted_3nn);
+% classification error by observing the number of the misclassified objects
+predicted_3nn_labels=classifier_knn(C, S, 3, training_set, test_set);
+classifier_3nn_error=(test_labels~=predicted_3nn_labels);
 
 % Calculate the number of the misclassified objects of the 3-NN Classifier
-misclassified_3nn=length(find(classifier_3nn_error==1))
+misclassified_3nn=length(find(classifier_3nn_error==1));
 
-fprintf('');
+fprintf('3 NEAREST NEIGHBOR CLASSIFIER RESULTS\n');
+fprintf('Out of %d textures, %d were misclassified, which gives us a loss of %.2f%%\n', N, misclassified_3nn, misclassified_3nn/N*100);
+fprintf('Out of %d textures, %d were correctly classified, which gives us an accuracy of %.2f%%\n', N, N-misclassified_3nn, (N-misclassified_3nn)/N*100);
+
+fprintf('\n');
 
 % Classify random objects using the Minimum Distance Classifier and
-% calculate the classification error
-predicted_minimum_distance=classifier_minimum_distance(C, S, train_hu, rand_hu);
-classifier_minimum_distance_error=(random_classes~=predicted_minimum_distance);
+% calculate the classification error by observing the number of the
+% misclassified objects
+predicted_md_labels=classifier_minimum_distance(C, S, training_set, test_set);
+classifier_md_error=(test_labels~=predicted_md_labels);
 
 % Calculate the number of the misclassified objects of the Minimum Distance Classifier
-misclassified_minimum_distance=length(find(classifier_minimum_distance_error==1))
+misclassified_md=length(find(classifier_md_error==1));
+
+fprintf('MINIMUM DISTANCE CLASSIFIER RESULTS\n');
+fprintf('Out of %d textures, %d were misclassified, which gives us a loss of %.2f%%\n', N, misclassified_md, misclassified_md/N*100);
+fprintf('Out of %d textures, %d were correctly classified, which gives us an accuracy of %.2f%%\n', N, N-misclassified_md, (N-misclassified_md)/N*100);

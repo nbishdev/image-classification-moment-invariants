@@ -7,8 +7,8 @@ function [ output ] = classifier_minimum_distance( c, s, train_features, rand_fe
 %
     [n,f] = size(rand_features);  % Dimensions of random objects' feature maxtrix
     output=zeros(1,n,'uint8');    % Classifier's output (predictions)
-    gravity=zeros(c,f,'double'); % Classes' centers of gravity
-    dists = zeros(1,c,'double'); % Vector of distances
+    gravity=zeros(c,f,'double');  % Classes' centers of gravity
+    dists = zeros(1,c,'double');  % Vector of distances
     
     for i=1:c       % For each class
         
