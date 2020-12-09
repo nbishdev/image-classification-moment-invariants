@@ -23,7 +23,7 @@ test_labels=random_generator(odir,tedir,C,N);
 % Read the training samples and compute their Hu invariant moments
 training_set=read_samples(trdir,C,S);
 
-% Read the random textures and compute their Hu invariant moments
+% Read the random figures and compute their Hu invariant moments
 test_set=read_randoms(tedir,N);
 
 % Classify random objects using the 3-NN Classifier and calculate the
@@ -35,8 +35,8 @@ classifier_3nn_error=(test_labels~=predicted_3nn_labels);
 misclassified_3nn=length(find(classifier_3nn_error==1));
 
 fprintf('3 NEAREST NEIGHBOR CLASSIFIER RESULTS\n');
-fprintf('Out of %d textures, %d were misclassified, which gives us a loss of %.2f%%\n', N, misclassified_3nn, misclassified_3nn/N*100);
-fprintf('Out of %d textures, %d were correctly classified, which gives us an accuracy of %.2f%%\n', N, N-misclassified_3nn, (N-misclassified_3nn)/N*100);
+fprintf('Out of %d figures, %d were misclassified, which gives us a loss of %.2f%%\n', N, misclassified_3nn, misclassified_3nn/N*100);
+fprintf('Out of %d figures, %d were correctly classified, which gives us an accuracy of %.2f%%\n', N, N-misclassified_3nn, (N-misclassified_3nn)/N*100);
 
 fprintf('\n');
 
@@ -50,5 +50,5 @@ classifier_md_error=(test_labels~=predicted_md_labels);
 misclassified_md=length(find(classifier_md_error==1));
 
 fprintf('MINIMUM DISTANCE CLASSIFIER RESULTS\n');
-fprintf('Out of %d textures, %d were misclassified, which gives us a loss of %.2f%%\n', N, misclassified_md, misclassified_md/N*100);
-fprintf('Out of %d textures, %d were correctly classified, which gives us an accuracy of %.2f%%\n', N, N-misclassified_md, (N-misclassified_md)/N*100);
+fprintf('Out of %d figures, %d were misclassified, which gives us a loss of %.2f%%\n', N, misclassified_md, misclassified_md/N*100);
+fprintf('Out of %d figures, %d were correctly classified, which gives us an accuracy of %.2f%%\n', N, N-misclassified_md, (N-misclassified_md)/N*100);
