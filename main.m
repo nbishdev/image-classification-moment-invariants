@@ -34,7 +34,7 @@ classifier_3nn_error=(random_classes~=predicted_3nn);
 % Calculate the number of the misclassified objects of the 3-NN Classifier
 misclassified_3nn=length(find(classifier_3nn_error==1))
 
-display('');
+fprintf('');
 
 % Classify random objects using the Minimum Distance Classifier and
 % calculate the classification error

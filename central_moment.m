@@ -10,7 +10,7 @@ function [ moment ] = central_moment( a, i, j )
     
     for x = 1 : k
         for y = 1 : l
-            moment += ((x - xc)^i) * ((y - yc)^j) * a(x,y);
+            moment = moment + ((x - xc)^i) * ((y - yc)^j) * a(x,y);
         end
     end
 end
